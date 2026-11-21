@@ -41,6 +41,7 @@ import { useConfirm, ConfirmProvider } from "@beacon-shared/ConfirmDialog";
 
 - `Modal.tsx` — Generic modal shell (backdrop, Escape, click-outside, width/height controls).
 - `ConfirmDialog.tsx` — `ConfirmProvider` + `useConfirm()` hook. Replaces `window.confirm()` everywhere.
+- `UpdateCheck.tsx` — "Check for updates" button and window for a System page. Calls the app's `GET /api/v1/system/updates` (backed by `internal/updatecheck`, identical in each app) and shows the newer commits and the commands to update. Props: `app`, `service`, `image`.
 
 ## Rules for adding components
 
