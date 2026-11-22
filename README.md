@@ -44,6 +44,12 @@ import { useConfirm, ConfirmProvider } from "@beacon-shared/ConfirmDialog";
 - `UpdateCheck.tsx` — "Check for updates" and "Release notes" buttons and windows for a System page. Calls the app's `GET /api/v1/system/updates` (backed by `internal/updatecheck`, identical in each app) and shows the newer commits and the commands to update. Props: `app`, `service`, `image`.
 - `Markdown.tsx` — Safe renderer for release-notes markdown (headings, lists, bold, code, https links, `<details>` folds). Builds React elements; never sets innerHTML.
 - `UpdatedNotice.tsx` — "App was updated, reload" notice for a page left open across an update. Mount once in the app shell (the Shell `overlay` slot). Props: `app`, `versionPath` (default `/system/status`).
+- `SystemInfo.tsx` — the About card at the top of every System page: version, build time, start time, uptime, database, Go version, API docs link and the update check. Reads `GET /api/v1/system/status` (same shape in all four apps). Props: `app`, `service`, `image`, optional `extraRows`.
+- `SystemCard.tsx` — the frame every System page section sits in (`title`, `subtitle`, `action`), plus `SystemRow` for label/value lines.
+- `TasksCard.tsx` — scheduled tasks from `GET /api/v1/tasks` with a Run now button each (Pilot, Prism).
+- `HealthCard.tsx` — the Health card: overall line, one line per check or problem, Check now. Each app maps its own health data to `overall` + `lines`.
+
+**System pages** are laid out the same in every app: `/settings/system` (sidebar "System", server icon) and `/settings/system/logs` ("Logs"); page description "What's running and how it's doing."; then About (`SystemInfo`), Health, then the app's own sections (Tasks, Haul's Maintenance).
 
 ## Rules for adding components
 
