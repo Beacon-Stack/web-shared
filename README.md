@@ -43,6 +43,7 @@ import { useConfirm, ConfirmProvider } from "@beacon-shared/ConfirmDialog";
 - `ConfirmDialog.tsx` — `ConfirmProvider` + `useConfirm()` hook. Replaces `window.confirm()` everywhere.
 - `UpdateCheck.tsx` — "Check for updates" and "Release notes" buttons and windows for a System page. Calls the app's `GET /api/v1/system/updates` (backed by `internal/updatecheck`, identical in each app) and shows the newer commits and the commands to update. Props: `app`, `service`, `image`.
 - `Markdown.tsx` — Safe renderer for release-notes markdown (headings, lists, bold, code, https links, `<details>` folds). Builds React elements; never sets innerHTML.
+- `UpdatedNotice.tsx` — "App was updated, reload" notice for a page left open across an update. Mount once in the app shell (the Shell `overlay` slot). Props: `app`, `versionPath` (default `/system/status`).
 
 ## Rules for adding components
 
