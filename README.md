@@ -47,6 +47,7 @@ import { useConfirm, ConfirmProvider } from "@beacon-shared/ConfirmDialog";
 - `SystemInfo.tsx` — the About card at the top of every System page: version, build time, start time, uptime, database, Go version, API docs link and the update check. Reads `GET /api/v1/system/status` (same shape in all four apps). Props: `app`, `service`, `image`, optional `extraRows`.
 - `SystemCard.tsx` — the frame every System page section sits in (`title`, `subtitle`, `action`), plus `SystemRow` for label/value lines.
 - `TasksCard.tsx` — scheduled tasks from `GET /api/v1/tasks` with a Run now button each (Pilot, Prism).
+- `HealthCard.tsx` — the Health card: overall line, one line per check or problem, Check now. Each app maps its own health data to `overall` + `lines`.
 
 **System pages** are laid out the same in every app: `/settings/system` (sidebar "System", server icon) and `/settings/system/logs` ("Logs"); page description "What's running and how it's doing."; then About (`SystemInfo`), Health, then the app's own sections (Tasks, Haul's Maintenance).
 
