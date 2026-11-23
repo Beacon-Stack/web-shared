@@ -49,6 +49,7 @@ import { useConfirm, ConfirmProvider } from "@beacon-shared/ConfirmDialog";
 - `TasksCard.tsx` — scheduled tasks from `GET /api/v1/tasks` with a Run now button each (Pilot, Prism).
 - `HealthCard.tsx` — the Health card: overall line, one line per check or problem, Check now. Each app maps its own health data to `overall` + `lines`.
 - `Discover.tsx` + `discoverState.ts` — the Discover page in Pilot and Prism: search box, the five lists (Trending, Popular, Top rated, New on streaming, Coming soon), genre / streaming service / rating filters, grid, loading, empty, paging and "TMDB isn't set up". State lives in the URL (`useDiscoverState`), so Back from a title returns to the same list. `discoverRegion()` picks the country from the browser locale. Each app supplies its own result card and calls `/api/v1/discover/{browse,search,providers}`.
+- `Notifications.tsx` — the Notifications settings page, the same in Pulse, Pilot, Prism and Haul. Talks to `/api/v1/notifications/*` (`pulse/pkg/notify/notifyapi`): channel list with on/off, Send test, edit and remove; an add/edit form built from each channel type's settings; which events (and, in Pulse, which apps); a banner saying whether the app sends through Pulse; recently sent.
 
 **System pages** are laid out the same in every app: `/settings/system` (sidebar "System", server icon) and `/settings/system/logs` ("Logs"); page description "What's running and how it's doing."; then About (`SystemInfo`), Health, then the app's own sections (Tasks, Haul's Maintenance).
 
